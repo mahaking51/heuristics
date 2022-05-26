@@ -1,0 +1,4 @@
+machine,batch,jobs,starting time,processing time,completion time
+1,1,j2,3,4,7
+3,1,"j5,j6",2,2,4
+2,1,"j1,j3,j4",5,3,8
