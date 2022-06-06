@@ -15,15 +15,15 @@ class machines:
         self.name=name
         self.capacity=capacity
         self.at=at
-file = open('data.csv')
-csvreader = csv.reader(file)
-header = []
-header = next(csvreader)
-jobList=[]
-for row in csvreader:
-    jobList.append(jobs(row[0],row[1],row[2],row[3]))
+# file = open('job_data.csv')
+# csvreader = csv.reader(file)
+# header = []
+# header = next(csvreader)
+# jobList=[]
+# for row in csvreader:
+#     jobList.append(jobs(row[0],row[1],row[2],row[3]))
 def readCSV():
-    file = open('mcdata.csv')
+    file = open('machine_data.csv')
     csvreader = csv.reader(file)
     header = []
     header = next(csvreader)
@@ -40,7 +40,7 @@ def arrToStr(arr):
     return st
 def writeCSV(rows,fields,address):
     filename = address    
-    with open(filename, 'w', newline='') as csvfile: 
+    with open(filename, 'a', newline='') as csvfile: 
         # creating a csv writer object 
         csvwriter = csv.writer(csvfile) 
             
@@ -92,6 +92,7 @@ def mbbf(jobList):
             batch=[]
     fields=['machine','batch','jobs','starting time','processing time','completion time']
     writeCSV(row,fields,'output/mbbf.csv') 
+    writeCSV([],[],'output/mbbf.csv') 
     print(row)
 def mbwf(jobList):
     l1=sorted(jobList,key=lambda x: int(x.rt))
@@ -241,8 +242,8 @@ def lpt(jobList):
     print(row)
     # mcList=mcTemp
 
-lpt(jobList);
-mbwf(jobList);
-mbbf(jobList)
-hjs(jobList)
-mbff(jobList)
+# lpt(jobList);
+# mbwf(jobList);
+# mbbf(jobList)
+# hjs(jobList)
+# mbff(jobList)
